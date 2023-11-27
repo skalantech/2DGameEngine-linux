@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
     game.initialize();
     game.run();
     game.destroy();
-
+    test_lua();
     
     return 0;
 }

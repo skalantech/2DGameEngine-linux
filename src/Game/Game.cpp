@@ -263,6 +263,8 @@ void Game::render() {
         SDL_SetRenderDrawColor(renderer, 21, 21, 21, 255);
         SDL_RenderClear(renderer);
 
+        registry->GetSystem<RenderSystem>().update(renderer, assetStore);
+        
         // Draw FPS text
         SDL_Color textColor = { 0, 255, 0, 255 };
         std::string fpsText = "FPS: " + std::to_string(fps);
@@ -316,8 +318,6 @@ void Game::render() {
         SDL_DestroyTexture(texture);
         SDL_DestroyTexture(texture1);
         SDL_FreeSurface(surface);
-
-        registry->GetSystem<RenderSystem>().update(renderer, assetStore);
 
         SDL_RenderPresent(renderer);
 }
